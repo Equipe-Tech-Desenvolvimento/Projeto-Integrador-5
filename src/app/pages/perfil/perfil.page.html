@@ -1,0 +1,129 @@
+ <ion-header>
+  <ion-toolbar>
+    <ion-title class="Titulo">Meu Perfil</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<!-- 
+<ion-content>
+  <ion-list *ngIf="!users.length">
+  <ion-item ngFor="let item of [0]">
+    <ion-avatar slot="start">
+      <ion-skeleton-text animated></ion-skeleton-text>
+    </ion-avatar>
+    <ion-label>
+      <h3>
+        <ion-skeleton-text animated style="width: 50%;"></ion-skeleton-text>
+      </h3>
+      <p>
+        <ion-skeleton-text animated style="width: 80%;"></ion-skeleton-text>
+      </p>
+      <p>
+        <ion-skeleton-text animated style="width: 30%;"></ion-skeleton-text>
+      </p>
+    </ion-label>
+  </ion-item>
+</ion-list>
+</ion-content>
+
+<ion-list>
+  <ion-item-sliding *ngFor="let user of users">
+    <ion-item button [routerLink]="['/cadastro', user.id]">
+
+      <ion-label>
+        {{user.nome}}
+        <p>{{user.email}}</p>
+        <p>{{user.dataNascimento| date: 'short'}}</p>
+      </ion-label>
+    </ion-item> -->
+
+
+ 
+<ion-content [fullscreen]="true">
+  <div id="container">
+    
+      <ion-tab-bar slot="bottom" color="dark">
+    
+        <ion-tab-button href="https://www.instagram.com/felipeguedes04">
+          <ion-icon name="logo-instagram"></ion-icon>
+          <ion-label>Instagram</ion-label>
+        </ion-tab-button>
+        
+        <ion-tab-button href="https://www.facebook.com/felipe.guedes.33886">
+          <ion-icon name="logo-facebook"></ion-icon>
+          <ion-label>Facebook</ion-label>
+        </ion-tab-button>
+       
+        <ion-tab-button href="####">
+          <ion-icon name="desktop-outline"></ion-icon>
+          <ion-label>Site Web</ion-label>
+        </ion-tab-button>
+      
+      </ion-tab-bar>
+
+   
+
+
+
+</div>
+   
+  <div *ngIf="afAuth.user | async as user; else showLogin">
+      <p class="ion-text-center ion-no-margin">
+          <ion-img src="{{ user.photoURL }}" alt="{{ user.displayName }}"></ion-img>
+      </p>
+      <h1>Olá {{ user.displayName }}!</h1>
+      <small>{{ user.email }}</small>
+
+  </div>
+
+
+
+  
+  <ng-template #showLogin>
+      Logue-se por favor:
+      <p class="ion-text-center">
+          <ion-button class="primary block" (click)="login()">Entrar com o Google</ion-button>
+      </p>
+  </ng-template>
+
+
+</ion-content>
+  
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6">
+          <ion-button routerLink="/inicio" color="success" expand="block">
+            Início
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="6">
+          <ion-button (click)="logout()" color="danger" expand="block">
+            Sair
+          </ion-button>
+        </ion-col>
+
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
